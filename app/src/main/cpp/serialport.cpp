@@ -54,17 +54,9 @@ static speed_t getBaudrate(jint baudrate)
 }
 
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_contrast_heaven_com_serialport_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}
-
 extern "C"
 JNIEXPORT jobject JNICALL
-Java_com_serialport_SerialPortUtil_open(JNIEnv *env, jclass type, jstring path, jint baudrate,
+Java_com_serialport_SeriaUtil_open(JNIEnv *env, jclass type, jstring path, jint baudrate,
                                         jint flags) {
 
     int fd;
@@ -137,7 +129,7 @@ Java_com_serialport_SerialPortUtil_open(JNIEnv *env, jclass type, jstring path, 
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_serialport_SerialPortUtil_close(JNIEnv *env, jobject thiz) {
+Java_com_serialport_SeriaUtil_close(JNIEnv *env, jobject thiz) {
     jclass SerialPortClass = env->GetObjectClass(thiz);
     jclass FileDescriptorClass = env->FindClass( "java/io/FileDescriptor");
 
